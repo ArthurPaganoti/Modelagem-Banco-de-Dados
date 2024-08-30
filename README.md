@@ -1,128 +1,68 @@
 # Modelagem-Banco-de-Dados
 
-![image](https://github.com/user-attachments/assets/ab12bd7a-3c53-4340-a367-b52809527531)
+Este repositório contém o projeto de um banco de dados para uma loja de sucos, incluindo o diagrama ER, o diagrama de relacionamento e o script SQL para criação das tabelas.
 
+
+Diagrama ER
+O diagrama ER (Entity-Relationship) mostra as entidades do banco de dados e as relações entre elas. Ele pode ser encontrado na imagem abaixo.
 ![image](https://github.com/user-attachments/assets/9b6d7c57-a381-4665-9434-addb7f12c9ea)
 
 
-CREATE DATABASE suco;
+Diagrama de Relacionamento
+O diagrama de relacionamento mostra as tabelas do banco de dados e as colunas de cada tabela, incluindo as chaves primárias e estrangeiras. Ele pode ser encontrado na imagem abaixo.
+![image](https://github.com/user-attachments/assets/ab12bd7a-3c53-4340-a367-b52809527531)
 
-USE suco;
 
-CREATE TABLE Fornecedor (
-nome VARCHAR(50), 
-telefone VARCHAR(20),
-endereco VARCHAR(100),
-primary key(nome) );
 
-CREATE TABLE Estoque (
-IDSuco INT auto_increment,
-quantidade INT,
-nome VARCHAR(50),
-primary key(IDSuco),
-foreign key (nome) REFERENCES Fornecedor(nome) );
+Script SQL
+O script SQL para criação das tabelas do banco de dados está localizado no arquivo script.sql. O script cria as seguintes tabelas:
 
-CREATE TABLE Vendedor (
-IDMatricula INT auto_increment,
-dataAdmissao DATE,
-nome VARCHAR(50),
-percentualComissao DOUBLE,
-primary key(IDMatricula) );
+Fornecedor: Armazena informações sobre os fornecedores dos produtos.
 
-CREATE TABLE Cliente (
-CPF VARCHAR(11),
-nome VARCHAR(50),
-endereco VARCHAR(100),
-sexo BIT(1),
-dataNascimento DATE,
-primary key(CPF) );
 
-CREATE TABLE Produto (
-IDProduto INT auto_increment,
-tamanho INT,
-sabor VARCHAR(20),
-preco DOUBLE, 
-nome VARCHAR(50),
-IDMatricula INT,
-CPF VARCHAR(11),
-primary key (IDProduto),
-foreign key(IDMatricula) REFERENCES Vendedor(IDMatricula),
-foreign key(CPF) REFERENCES Cliente(CPF) ); 
+Estoque: Armazena informações sobre os produtos em estoque.
 
-CREATE TABLE Armazena (
-IDArmazena INT auto_increment,
-IDSuco INT,
-IDProduto INT,
-primary key(IDArmazena),
-foreign key(IDSuco) REFERENCES Estoque(IDSuco),
-foreign key(IDProduto) REFERENCES Produto(IDProduto) );
 
-CREATE TABLE Promocao (
-IDPromocao INT auto_increment,
-descricao VARCHAR(50),
-dataLimite DATE,
-descontoAplicado DOUBLE,
-IDMatricula INT,
-primary key(IDPromocao),
-foreign key(IDMatricula) REFERENCES Vendedor(IDMatricula) );
+Vendedor: Armazena informações sobre os vendedores da loja.
 
-CREATE TABLE Aplica (
-IDAplica INT auto_increment,
-IDProduto INT,
-IDPromocao INT,
-primary key (IDAplica),
-foreign key(IDProduto) REFERENCES Produto(IDProduto),
-foreign key(IDPromocao) REFERENCES Promocao(IDPromocao) );
 
-CREATE TABLE Pagamento (
-IDPagamento INT auto_increment,
-valor DOUBLE, 
-forma VARCHAR(20),
-dataPagamento DATE,
-CPF VARCHAR(11),
-primary key(IDPagamento),
-foreign key(CPF) REFERENCES Cliente(CPF));
+Cliente: Armazena informações sobre os clientes da loja.
 
-CREATE TABLE Entrega (
-IDEntrega INT auto_increment,
-dataEntrega DATE,
-hora TIME, 
-endereco VARCHAR(100),
-CPF VARCHAR(11),
-IDPagamento INT,
-primary key(IDEntrega),
-foreign key(CPF) REFERENCES Cliente(CPF),
-foreign key(IDPagamento) REFERENCES Pagamento(IDPagamento) );
 
-CREATE TABLE Comentario (
-IDComentario INT auto_increment,
-texto VARCHAR(100),
-dataComentario DATE,
-CPF VARCHAR(11),
-primary key(IDComentario),
-foreign key(CPF) REFERENCES Cliente(CPF) );
+Produto: Armazena informações sobre os produtos vendidos pela loja.
 
-CREATE TABLE Pedido (
-IDPedido INT auto_increment,
-dataPedido DATE,
-valor DOUBLE,
-estado VARCHAR(20),
-IDPagamento INT,
-primary key(IDPedido),
-foreign key(IDPagamento) REFERENCES Pagamento(IDPagamento) );
 
-CREATE TABLE Adiciona (
-IDAdiciona INT auto_increment,
-IDProduto INT,
-IDPedido INT,
-primary key(IDAdiciona),
-foreign key(IDProduto) REFERENCES Produto(IDProduto),
-foreign key(IDPedido) REFERENCES Pedido(IDPedido) );
+Armazena: Relaciona os produtos com o estoque.
 
-CREATE TABLE Leva (
-IDLeva INT auto_increment,
-IDEntrega INT,
-IDPedido INT,
-primary key(IDLeva),
-foreign key(IDEntrega) REFERENCES Entrega(IDEntrega),
-foreign key(IDPedido) REFERENCES Pedido(IDPedido) );
+
+Promocao: Armazena informações sobre as promoções oferecidas pela loja.
+
+
+Aplica: Relaciona as promoções com os produtos.
+
+
+Pagamento: Armazena informações sobre os pagamentos realizados pelos clientes.
+
+
+Entrega: Armazena informações sobre as entregas realizadas aos clientes.
+
+
+Comentario: Armazena comentários deixados pelos clientes sobre os produtos ou serviços.
+
+
+Pedido: Armazena informações sobre os pedidos realizados pelos clientes.
+
+
+Adiciona: Relaciona os pedidos com os produtos.
+
+
+Leva: Relaciona as entregas com os pedidos.
+
+
+Como usar
+Para usar o banco de dados, você pode importar o script SQL em um servidor de banco de dados. Em seguida, pode usar a linguagem SQL para consultar, inserir, atualizar e excluir dados nas tabelas.
+
+
+Observações
+Este projeto é um exemplo básico de um banco de dados para uma loja de sucos. Ele pode ser adaptado para atender às necessidades específicas de uma loja real.
+Espero que este repositório seja útil!
