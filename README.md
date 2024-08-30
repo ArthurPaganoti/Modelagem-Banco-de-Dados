@@ -2,7 +2,8 @@
 
 ![image](https://github.com/user-attachments/assets/ab12bd7a-3c53-4340-a367-b52809527531)
 
-![image](https://github.com/user-attachments/assets/2b2548eb-d3ee-454a-a17a-6d514955bf63)
+![image](https://github.com/user-attachments/assets/9b6d7c57-a381-4665-9434-addb7f12c9ea)
+
 
 CREATE DATABASE suco;
 
