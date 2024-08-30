@@ -1,6 +1,6 @@
 # Modelagem-Banco-de-Dados
 
-Este repositório contém o projeto de um banco de dados para uma loja de sucos, incluindo o diagrama ER, o diagrama de relacionamento e o script SQL para criação das tabelas.
+Este repositório contém o projeto de um banco de dados para uma loja de sucos, incluindo o diagrama ER, o diagrama de relacionamento e o script SQL para criação das tabelas. Projeto feito para a disciplina de Modelagem de Banco de Dados.
 
 
 Diagrama ER
@@ -14,8 +14,8 @@ O diagrama de relacionamento mostra as tabelas do banco de dados e as colunas de
 
 
 
-Script SQL
-O script SQL para criação das tabelas do banco de dados está localizado no arquivo script.sql. O script cria as seguintes tabelas:
+* Script SQL:
+
 
 Fornecedor: Armazena informações sobre os fornecedores dos produtos.
 
@@ -59,10 +59,17 @@ Adiciona: Relaciona os pedidos com os produtos.
 Leva: Relaciona as entregas com os pedidos.
 
 
-Como usar
+*Como usar:
+
+
 Para usar o banco de dados, você pode importar o script SQL em um servidor de banco de dados. Em seguida, pode usar a linguagem SQL para consultar, inserir, atualizar e excluir dados nas tabelas.
 
 
-Observações
+*Observações:
+
+
 Este projeto é um exemplo básico de um banco de dados para uma loja de sucos. Ele pode ser adaptado para atender às necessidades específicas de uma loja real.
+
+
+
 Espero que este repositório seja útil!
